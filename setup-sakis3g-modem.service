@@ -1,0 +1,10 @@
+[Unit]
+Description=Setup sakis3g config
+
+[Service]
+Type=forking
+ExecStart=/bin/bash /opt/congig-sakis.sh 
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

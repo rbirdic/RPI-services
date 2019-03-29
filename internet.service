@@ -1,11 +1,15 @@
-q[Unit]
+[Unit]
 Description=3G Internet connect script
+PartOf=setup-sakis3g-modem.service
+After=setup-sakis3g-modem.service
+#Want=setup-sakis3g-modem.service
 
 [Service]
 Type=forking
-After=setup-sakis3g-modem.service
 ExecStart=/opt/sakis3g/sakis3g --sudo "connect"
 ExecStop=/opt/sakis3g/sakis3g --sudo "disconnect"
+RemainAfterExit=no
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
